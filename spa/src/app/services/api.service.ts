@@ -53,7 +53,7 @@ export class ApiService {
 
     setCreatedLinkData(flash: string, expiry: number): void {
         this.createdLinkData = {
-            url: `${this.linkPrefix}${flash}`,
+            url: `${this.linkPrefix}/${flash}`,
             expiry: expiry
         };
     }

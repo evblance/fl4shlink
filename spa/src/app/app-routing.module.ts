@@ -9,12 +9,12 @@ import { FailureComponent } from './components/failure/failure.component';
 import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/api/new', pathMatch: 'full' },
+    { path: '', redirectTo: '0/new', pathMatch: 'full' },
+    { path: '0/new', component: NewComponent },
+    { path: '0/new/success', component: SuccessComponent },
+    { path: '0/new/failure', component: FailureComponent },
+    { path: '0/error', component: ErrorComponent },
     { path: ':flash', component: FlashComponent },
-    { path: 'api/new', component: NewComponent },
-    { path: 'api/new/success', component: SuccessComponent },
-    { path: 'api/new/failure', component: FailureComponent },
-    { path: 'api/error', component: ErrorComponent },
     { path: '**', component: LinkNotFoundComponent }
 ];
 

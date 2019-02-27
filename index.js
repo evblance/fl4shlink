@@ -1,20 +1,29 @@
-const config = require('./config');
+let config;
+if (process.env.NODE_ENV !== 'production') {
+    config = require('./config');
+}
+
+let DBUSER, DBPWD;
+if (process.env.NODE_ENV === 'production') {
+    DBUSER = process.env.DBUSER;
+    DBPWD = process.env.DBPWD;
+} else {
+    DBUSER = config.DBUSER;
+    DBPWD = config.DBPWD;
+}
 
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
-const cors = require('cors');
-const mongoose = require('mongoose');
 const path = require('path');
 
-const router = express.Router();
+const cors = require('cors');
 app.use(cors());
+const router = express.Router();
+const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-const DBUSER = process.env.DBUSER || config.DBUSER;
-const DBPWD = process.env.DBPWD || config.DBPWD;
-
+const mongoose = require('mongoose');
 mongoose.connect(`mongodb://${DBUSER}:${DBPWD}@ds155492.mlab.com:55492/flashlinks`);
 
 const Schema = mongoose.Schema;
@@ -124,11 +133,20 @@ router.route('/retrieve/:flash')
     });
 
 
-app.use(express.static(path.join(__dirname, 'spa/dist/flashlinks/')));
 app.use('/api', router);
-app.get('*', (request, response) => {
-    response.sendFile(path.join(__dirname, 'spa/dist/flashlinks/index.html'));
-});
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('./spa/dist/'));
+    app.get('*', (request, response) => {
+        response.sendFile(path.join(__dirname, './spa/dist/index.html'));
+    });
+} else {
+    app.use(express.static(path.join(__dirname, 'spa/dist/')));
+    app.get('*', (request, response) => {
+        response.sendFile(path.join(__dirname, 'spa/dist/index.html'));
+    });
+}
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));

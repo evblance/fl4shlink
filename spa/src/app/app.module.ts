@@ -40,8 +40,8 @@ import { BannerComponent } from './components/banner/banner.component';
     ],
     providers: [
         ApiService,
-        { provide: 'API_URL', useValue: 'http://flas4link.herokuapp.com/' }, // TODO: Update to PROD URI
-        { provide: 'LINK_PREFIX', useValue: 'https://fl4sh.me/' } // TODO: Update to PROD URI
+        { provide: 'API_URL', useValue: 'https://fl4shlink.herokuapp.com/api' }, // TODO: Update to PROD URI
+        { provide: 'LINK_PREFIX', useValue: 'https://fl4sh.me' } // TODO: Update to PROD URI
     ],
     bootstrap: [AppComponent]
 })
