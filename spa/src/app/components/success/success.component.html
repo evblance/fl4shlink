@@ -1,0 +1,13 @@
+<div class="centered">
+    <div class="uk-flex uk-flex-column uk-flex-center uk-flex-middle">
+        <i class="fa fa-5x fa-check-circle"></i>
+        <h1>Here's your fl4shlink:</h1>
+        <div class="flash-wrapper">
+            <p class="flashlink">{{ url }}</p>
+        </div>
+        <p>Best Before: {{ expiry | date: 'long' }}</p>
+    </div>
+    <div uk-sticky="bottom: true">
+        <app-footer></app-footer>
+    </div>
+</div>

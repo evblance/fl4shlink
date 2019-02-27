@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+// 1. Custom variables and variable overwrites
+
+$global-link-color: #0d5eaf;
+
+// 2. Defualt variables and available mixins
+@import "../node_modules/uikit/src/scss/variables-theme.scss";
+@import "../node_modules/uikit/src/scss/mixins-theme.scss";
+
+
+
+// 3. Custom mixin overwrites
+
+
+// 4. UIKit import
+@import "../node_modules/uikit/src/scss/uikit-theme.scss";
+
+img[data-src][src*='data:image'] { background: rgba(0,0,0,0.1); }
+
+
+// 5. Custom styling
+@import url('https://fonts.googleapis.com/css?family=Condiment|Staatliches');
+
+.centered {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    max-height: 75%;
+    max-width: 75%;
+    text-align: center;
+}
+
+.flash-wrapper {
+    border: 4px dashed #333;
+    border-radius: 3px;
+    padding: 2.5rem;
+}
+
+.flashlink {
+    font-style: italic;
+    font-size: 2rem;
+    word-break: break-all;
+}
+
+.footer-link {
+    margin: 0 15px;
+    font-size: 0.9rem;
+}
+
+.brand {
+    margin: 0 auto;
+    text-align: center;
+
+    .brand__left {
+        color: #aaa;
+        font-family: 'Condiment', sans-serif;
+        font-style: italic;
+        font-size: 6rem;
+    }
+
+    .brand__right {
+        color: $global-link-color;
+        font-size: 5rem;
+        font-family: 'Staatliches', sans-serif;
+        text-transform: uppercase;
+        padding-left: 0;
+    }
+}
