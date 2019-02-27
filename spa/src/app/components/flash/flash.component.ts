@@ -26,9 +26,9 @@ export class FlashComponent implements OnInit {
                 },
                 (error: any) => {
                     if (error.error.reason === 'not found') {
-                        this.router.navigate(['api/error'], { queryParams: { r: 'nf' } });
+                        this.router.navigate(['0/error'], { queryParams: { r: 'nf' } });
                     } else if (error.error.reason === 'expired') {
-                        this.router.navigate(['api/error'], { queryParams : { r: 'exp' } });
+                        this.router.navigate(['0/error'], { queryParams : { r: 'exp' } });
                     }
                 }
             );
