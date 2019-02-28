@@ -17,6 +17,7 @@ import { ApiService } from './services/api.service';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { BrandComponent } from './components/brand/brand.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { BannerComponent } from './components/banner/banner.component';
         FlashComponent,
         ErrorComponent,
         FooterComponent,
-        BannerComponent
+        BannerComponent,
+        BrandComponent
     ],
     imports: [
         BrowserModule,

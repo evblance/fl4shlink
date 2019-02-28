@@ -60,6 +60,10 @@ img[data-src][src*='data:image'] { background: rgba(0,0,0,0.1); }
         font-family: 'Condiment', sans-serif;
         font-style: italic;
         font-size: 6rem;
+
+        &.brand__left--small {
+            font-size: 2rem;
+        }
     }
 
     .brand__right {
@@ -68,5 +72,13 @@ img[data-src][src*='data:image'] { background: rgba(0,0,0,0.1); }
         font-family: 'Staatliches', sans-serif;
         text-transform: uppercase;
         padding-left: 0;
+
+        &.brand__right--small {
+            font-size: 1rem;
+        }
     }
+}
+
+.success-text {
+    font-size: 2rem;
 }
