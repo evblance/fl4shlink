@@ -51,9 +51,16 @@ router.get('/', (request, response) => {
 router.route('/createLink')
     .post((request, response) => {
         const flash = createFlash();
-        const url = request.body.url;
+        let url = request.body.url;
         const lifetime = request.body.lifetime;
         const expiry = Date.now() + lifetime * 1000;
+
+        // TODO: Validate the URL
+
+        // Append https:// to the URL if protocol is not present
+        if (!/^http(s?)\:\/\//.test(url)) {
+            url = `https://${url}`;
+        }
 
         const NewFlash = new FlashlinkModel({
             url: url,
