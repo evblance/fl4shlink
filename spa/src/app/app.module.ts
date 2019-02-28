@@ -43,7 +43,7 @@ import { BrandComponent } from './components/brand/brand.component';
     providers: [
         ApiService,
         { provide: 'API_URL', useValue: 'https://fl4shlink.herokuapp.com/api' }, // TODO: Update to PROD URI
-        { provide: 'LINK_PREFIX', useValue: 'https://fl4sh.me' } // TODO: Update to PROD URI
+        { provide: 'LINK_PREFIX', useValue: 'https://fl4shlink.herokuapp.com' } // TODO: Update to PROD URI (https://fl4sh.me)
     ],
     bootstrap: [AppComponent]
 })
