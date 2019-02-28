@@ -7,6 +7,7 @@ import { SuccessComponent } from './components/success/success.component';
 import { FlashComponent } from './components/flash/flash.component';
 import { FailureComponent } from './components/failure/failure.component';
 import { ErrorComponent } from './components/error/error.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 const redirectUrl = new InjectionToken('redirectUrlResolver');
 
@@ -16,8 +17,8 @@ const routes: Routes = [
     { path: '0/new/success', component: SuccessComponent },
     { path: '0/new/failure', component: FailureComponent },
     { path: '0/error', component: ErrorComponent },
+    { path: '0/redirect', resolve: { redirectUrl }, component: RedirectComponent },
     { path: ':flash', component: FlashComponent },
-    { path: 'redirect', resolve: { redirectUrl }, component: LinkNotFoundComponent },
     { path: '**', component: LinkNotFoundComponent }
 ];
 
@@ -27,8 +28,6 @@ const routes: Routes = [
             provide: redirectUrl,
             useValue: (route: ActivatedRouteSnapshot) => {
                 const redirectUrl = route.paramMap.get('redirectUrl');
-                console.log(route);
-                console.log(redirectUrl);
                 window.location.href = redirectUrl;
             }
         }

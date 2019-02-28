@@ -18,6 +18,7 @@ import { ApiService } from './services/api.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { BrandComponent } from './components/brand/brand.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { BrandComponent } from './components/brand/brand.component';
         ErrorComponent,
         FooterComponent,
         BannerComponent,
-        BrandComponent
+        BrandComponent,
+        RedirectComponent
     ],
     imports: [
         BrowserModule,
@@ -43,7 +45,7 @@ import { BrandComponent } from './components/brand/brand.component';
     providers: [
         ApiService,
         { provide: 'API_URL', useValue: 'https://fl4shlink.herokuapp.com/api' }, // TODO: Update to PROD URI
-        { provide: 'LINK_PREFIX', useValue: 'https://fl4shlink.herokuapp.com' } // TODO: Update to PROD URI (https://fl4sh.me)
+        { provide: 'HOST_URL', useValue: 'https://fl4shlink.herokuapp.com' } // TODO: Update to PROD URI (https://fl4sh.me)
     ],
     bootstrap: [AppComponent]
 })

@@ -23,7 +23,7 @@ export class ApiService {
 
     constructor(
         @Inject('API_URL') private apiUrl: string,
-        @Inject('LINK_PREFIX') private linkPrefix: string,
+        @Inject('HOST_URL') private hostUrl: string,
         private httpClient: HttpClient
     ) { }
 
@@ -53,7 +53,7 @@ export class ApiService {
 
     setCreatedLinkData(flash: string, expiry: number): void {
         this.createdLinkData = {
-            url: `${this.linkPrefix}/${flash}`,
+            url: `${this.hostUrl}/${flash}`,
             expiry: expiry
         };
     }
