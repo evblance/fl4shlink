@@ -53,7 +53,6 @@ export class NewComponent implements OnInit {
             }
             this.apiService.createLink(url, lifetimeSeconds).subscribe((response) => {
                 if (response.status === 'success') {
-                    console.log(response);
                     this.apiService.setCreatedLinkData(response.flash, response.expiry);
                     this.router.navigate(['0/new/success']);
                 }
