@@ -70,7 +70,13 @@ router.route('/createLink')
             });
         }
 
-        // TODO: Validate the lifetime
+        // Validate the lifetime
+        if (!/\d+/.test(lifetime)) {
+            return response.status(400).send({
+                status: 'failure',
+                message: 'LifetimeError: Invalid lifetime format.'
+            });
+        }
 
         // Append https:// to the URL if protocol is not present
         if (!/^http(s?)\:\/\//.test(url)) {
