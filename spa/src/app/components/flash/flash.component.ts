@@ -21,7 +21,8 @@ export class FlashComponent implements OnInit {
             this.apiService.redirectToUrl(params.flash).subscribe(
                 (response: any) => {
                     if (response.status === 'success') {
-                        document.location.href = response.url;
+                        console.log(response.url);
+                        location.href = response.url;
                     }
                 },
                 (error: any) => {
