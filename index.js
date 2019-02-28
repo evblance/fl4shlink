@@ -55,7 +55,13 @@ router.route('/createLink')
         const lifetime = request.body.lifetime;
         const expiry = Date.now() + lifetime * 1000;
 
-        // TODO: Validate the URL
+        // Validate the URL
+        if (!/^([w]{3}.)?[a-zA-Z\-]{3,}.[a-z]{2,3}$/.test(url)) {
+            return response.status(400).send({
+                status: 'failure',
+                message: 'UrlError: Invalid url format.'
+            });
+        }
 
         // Append https:// to the URL if protocol is not present
         if (!/^http(s?)\:\/\//.test(url)) {
