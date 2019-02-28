@@ -66,8 +66,8 @@ export class NewComponent implements OnInit {
     }
 
     urlIsValid(url: string): boolean {
-        const validURLRegExp = new RegExp(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/, 'g');
-        return (url.replace(validURLRegExp, '') !== url) ? true : false;
+        const validURLRegExp = new RegExp(/^([w]{3}.)?[a-zA-Z\-]{3,}.[a-z]{2,3}$/);
+        return validURLRegExp.test(url);
     }
 
 }
