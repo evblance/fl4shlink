@@ -53,7 +53,14 @@ router.route('/createLink')
         const flash = createFlash();
         let url = request.body.url;
         const lifetime = request.body.lifetime;
-        const expiry = Date.now() + lifetime * 1000;
+
+        // Only proceed if required parameters have been supplied
+        if (!url || !lifetime) {
+            return response.status(400).send({
+                status: 'failure',
+                message: 'ParamError: Invalid parameters provided.'
+            });
+        }
 
         // Validate the URL
         if (!/^([w]{3}.)?[a-zA-Z\-]{3,}.[a-z]{2,3}$/.test(url)) {
@@ -63,10 +70,14 @@ router.route('/createLink')
             });
         }
 
+        // TODO: Validate the lifetime
+
         // Append https:// to the URL if protocol is not present
         if (!/^http(s?)\:\/\//.test(url)) {
             url = `https://${url}`;
         }
+
+        const expiry = Date.now() + lifetime * 1000;
 
         const NewFlash = new FlashlinkModel({
             url: url,
