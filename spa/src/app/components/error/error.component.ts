@@ -21,6 +21,8 @@ export class ErrorComponent implements OnInit {
                 this.errorText = 'Sorry, the link you used could not be found...';
             } else if (params.r === 'exp') {
                 this.errorText = 'This link has expired...';
+            } else if (params.r === 'g') {
+                this.errorText = 'There was an error creating your link. Please try again later.'
             } else {
                 this.router.navigate(['']);
             }

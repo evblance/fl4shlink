@@ -7,9 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewComponent } from './components/new/new.component';
 import { SuccessComponent } from './components/success/success.component';
-import { LinkNotFoundComponent } from './components/link-not-found/link-not-found.component';
-import { LinkExpiredComponent } from './components/link-expired/link-expired.component';
-import { FailureComponent } from './components/failure/failure.component';
 import { FlashComponent } from './components/flash/flash.component';
 import { ErrorComponent } from './components/error/error.component';
 
@@ -25,10 +22,7 @@ import { RedirectComponent } from './components/redirect/redirect.component';
     declarations: [
         NewComponent,
         SuccessComponent,
-        LinkNotFoundComponent,
         AppComponent,
-        LinkExpiredComponent,
-        FailureComponent,
         FlashComponent,
         ErrorComponent,
         FooterComponent,

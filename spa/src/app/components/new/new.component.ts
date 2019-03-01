@@ -55,6 +55,8 @@ export class NewComponent implements OnInit {
                 if (response.status === 'success') {
                     this.apiService.setCreatedLinkData(response.flash, response.expiry);
                     this.router.navigate(['0/new/success']);
+                } else {
+                    this.router.navigate(['0/error', { queryParams: { r: 'g' } }]);
                 }
             });
         } else {
