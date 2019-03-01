@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { ApiService } from '../../services/api.service';
 
