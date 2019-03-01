@@ -2,16 +2,8 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
-interface IFlash {
-    url: string,
-    lifetime: number
-}
-
-interface IFlashData {
-    url: string,
-    expiry: number
-}
+import IFlash from '../interfaces/flash.interface';
+import IFlashData from '../interfaces/flash-data.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -57,7 +49,7 @@ export class ApiService {
         };
     }
 
-    getCreatedLinkData(): any {
+    getCreatedLinkData(): IFlashData {
         return this.createdLinkData;
     }
 }

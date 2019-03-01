@@ -3,10 +3,7 @@ import { Router } from '@angular/router';
 
 import { ApiService } from '../../services/api.service';
 
-interface IFlashData {
-    flash: String,
-    expiry: String
-};
+import IFlashData from '../../interfaces/flash-data.interface';
 
 @Component({
     selector: 'app-success',
@@ -15,8 +12,8 @@ interface IFlashData {
 })
 export class SuccessComponent implements OnInit {
 
-    url: String = undefined;
-    expiry: String = undefined;
+    url: string = undefined;
+    expiry: number = undefined;
 
     constructor(
         private router: Router,
@@ -24,7 +21,7 @@ export class SuccessComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        const data = this.apiService.getCreatedLinkData() || undefined;
+        const data: IFlashData = this.apiService.getCreatedLinkData() || undefined;
 
         // Redirect to landing page if data is stale or non-available
         if (!data) {
