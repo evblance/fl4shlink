@@ -1,3 +1,3 @@
 # Fl4shlink
 
-MEAN Stack link shortening microservice
+A MEAN Stack URL-shortening app
