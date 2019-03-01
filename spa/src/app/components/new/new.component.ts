@@ -4,6 +4,8 @@ import { Router, ParamMap } from '@angular/router';
 
 import { ApiService } from '../../services/api.service';
 
+import ETimeMeasure from '../../enums/time-measure.enum';
+
 @Component({
     selector: 'app-new',
     templateUrl: './new.component.html',
@@ -12,12 +14,12 @@ import { ApiService } from '../../services/api.service';
 
 export class NewComponent implements OnInit {
 
-    lifetimeMeasures: string[] = ['seconds', 'minutes', 'hours'];
+    lifetimeMeasures: ETimeMeasure[] = Object.keys(ETimeMeasure).map(k => ETimeMeasure[k]);
     bUrlValid: boolean = true;
 
     form = new FormGroup({
         url: new FormControl(''),
-        lifetimeOptions: new FormControl('minutes'),
+        lifetimeOptions: new FormControl(ETimeMeasure.MINUTES),
         lifetime: new FormControl(60)
     });
 
@@ -39,13 +41,13 @@ export class NewComponent implements OnInit {
             const url: string = formValues.url.value;
             let lifetimeSeconds: number;
             switch (formValues.lifetimeOptions.value) {
-                case 'seconds':
+                case ETimeMeasure.SECONDS:
                     lifetimeSeconds = formValues.lifetime.value;
                     break;
-                case 'minutes':
+                case ETimeMeasure.MINUTES:
                     lifetimeSeconds = formValues.lifetime.value * 60;
                     break;
-                case 'hours':
+                case ETimeMeasure.HOURS:
                     lifetimeSeconds = formValues.lifetime.value * 3600;
                     break;
                 default:
