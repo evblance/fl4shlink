@@ -40,7 +40,6 @@ export class ApiService {
     }
 
     redirectToUrl(flash: string): Observable<string> {
-        // Called from https://fl4sh.me/:flash route
         const httpUrl = `${this.apiUrl}/retrieve/${flash}`;
         const httpOptions = {
             headers: new HttpHeaders({
